@@ -279,7 +279,7 @@ $ git flow release start 0.4
 $ vi release2.txt # 1
 $ git add .
 $ git commit -m 'release/0.4 1'
-$ git flow feature publish login
+$ git flow release publish 0.4
 $ git flow release finish 0.4
 $ git push
 ```
