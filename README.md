@@ -157,7 +157,7 @@ $ git commit -am 'release/0.2 2'
 $ git push
 
 $ git checkout develop
-$ git merge release/0.2
+$ git merge --no-ff release/0.2
 $ git push
 ```
 
@@ -211,7 +211,7 @@ $ git branch -D feature/short
 - release/0.3
 ```
 $ git checkout -b release/0.3
-$ git push -u release/0.3
+$ git push -u origin release/0.3
 $ vi short.txt #1,2,bugfix
 $ git commit -am 'release/0.3 1'
 $ git push
@@ -290,3 +290,6 @@ $ git checkout main
 $ git push
 $ git push origin 0.4
 ```
+![gitlog](./gitlog.png)
+
+
