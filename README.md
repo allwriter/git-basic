@@ -26,12 +26,14 @@ HEAD~2: 현재의 부모의 부모
 
 - 되돌리기
 ```
-$ git reset {version} # 해당 버전으로 되돌리기 윗 버전들은 삭제
+$ git reset <version> # 해당 버전으로 되돌리기 윗 버전들은 삭제
  --mixed: 취소 내용을 working directory에
  --soft: 취소 내용을 staging area에
  --hard: 취소 내용 버림
 $ git push -f origin main # 협업 시에는 주의하여 사용 
-$ git revert {version} # 해당 버전의 마지막 커밋 내용을 되돌리고 다시 커밋, 순차적으로만 revert 가능
+
+$ git revert <version> # 해당 버전의 마지막 커밋 내용을 되돌리고 다시 커밋, 순차적으로만 revert 가능
+$ git revert <version>..<version> 여러개 버전 revert 예) git revert 001..003 일 경우 003, 002, 001 순으로 revert 
 ```
 
 - 브랜치
