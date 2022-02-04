@@ -60,6 +60,10 @@ $ git push -u origin main
 ```
 $ git clone https://github.com/allwriter/git.git
 $ git pull origin main
+
+# 원격 브랜치 가져오기
+$ git branch -a
+$ git checkout -t origin/...
 ```
 
 - git merge tool
