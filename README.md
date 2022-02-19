@@ -1,21 +1,25 @@
 ## git basic
 
 
-- 생성
+- local에 working directory 생성하기
 ```
 $ git init
+$ git branch -M main
+...
+$ git status
 $ git add .
 $ git commit -m 'first commit'
 ```
-- 확인
+
+- log 확인하기
 ```
-$ git status
-$ git log 
-$ git log -p 
+$ git log
+$ git log -p
 $ git log --stat
-$ git diff
+$ git log --all -graph --oneline
 ```
-- Git 기본
+
+- git 기본
 ```
 main(master): 기본 브랜치
 origin: 기본 리모트 저장소
@@ -24,73 +28,91 @@ HEAD^: 현재의 부모
 HEAD~2: 현재의 부모의 부모
 ```
 
+- branch 생성하고 합치기
+```
+$ git branch
+$ git branch develop
+$ git checkout develop
+...
+$ git checkout main
+$ git merge develop
+```
+
+- remote에 백업
+```
+$ git remote add origin https://github.com/allwriter/git.git
+$ git remote
+$ git push origin main
+$ git checkout develop
+$ git push origin develop
+$ git branch -a
+```
+
+- local에 복원
+```
+$ git clone https://github.com/allwriter/git.git
+$ git pull
+
+# 원격 특정 브랜치 가져오기
+$ git branch -a
+$ git checkout -t origin/develop
+```
+
 - 되돌리기
 ```
-$ git reset <version> # 해당 버전으로 되돌리기 윗 버전들은 삭제
+$ git log --all --graph --oneline
+$ git reset <version> # 해당 버전으로 되돌리기 윗 버전들은 삭제 log도 함께 사라짐
  --mixed: 취소 내용을 working directory에
  --soft: 취소 내용을 staging area에
  --hard: 취소 내용 버림
-$ git push -f origin main # 협업 시에는 주의하여 사용 
+$ git push -f origin develop # 협업 시 reset은 주의하여 사용 
 
 $ git revert <version> # 해당 버전의 마지막 커밋 내용을 되돌리고 다시 커밋, 순차적으로만 revert 가능
-$ git revert <version>..<version> 여러개 버전 revert 예) git revert 001..003 일 경우 003, 002, 001 순으로 revert 
-```
-
-- 브랜치
-```
-$ git branch
-$ git log --all -graph --oneline
-
-$ git branch apple
-$ git checkout apple
-...
-$ git checkout main
-$ git merge apple
-```
-
-- 백업
-```
-$ git remote add origin https://github.com/allwriter/git.git
-$ git branch -M main
-$ git remote
-$ git push -u origin main
-```
-
-- 복원
-```
-$ git clone https://github.com/allwriter/git.git
-$ git pull origin main
-
-# 원격 브랜치 가져오기
-$ git branch -a
-$ git checkout -t origin/...
+$ git revert <version>..<version> 여러개 버전 revert 예) git revert 001..003 일 경우 003, 002 revert(001은 포함 안됨)
+$ git push
 ```
 
 - git merge tool
 ```
-$ git config --global merge.tool p4mergetool
+$ vi
 $ git config --global mergetool.p4mergetool.cmd \
 "/Applications/p4merge.app/Contents/Resources/launchp4merge \$PWD/\$BASE \$PWD/\$REMOTE \$PWD/\$LOCAL \$PWD/\$MERGED"
 $ git config --global mergetool.p4mergetool.trustExitCode false
 $ git config --global mergetool.keepBackup false
+
+# merge 충돌 시
 $ git mergetool
 ```
-- git pull의 다른 방법
+
+- remote branch 삭제
+```
+git branch --delete develop (git branch -D develop)
+git push origin :develop
+```
+
+- git fetch 
 ```
 신중하게 가져오고 싶을 때
 $ git fetch 
+$ git diff HEAD FETCH_HEAD
 $ git merge FETCH_HEAD
 ```
-- cherry-pick
+
+- git cherry-pick
 ```
-원하는 것만 가져오기
+다른 브랜치에서 원하는 커밋만 가져오고 싶을 때
 $ git cherry-pick {version}
 ```
 
-- rebase
+- git rebase
 ```
 base를 옮겨 선형 로그로 만든다 (원격 저장소에 push하기 전에만 사용.. 혼란을 줄 수도)
 $ git rebase {이동하려는 branch name}
+```
+
+- git add tip
+```
+git add . -p # 하나씩 확인하며 add
 ```
 
 - git credential
@@ -98,29 +120,6 @@ $ git rebase {이동하려는 branch name}
 $ git config --global credential.helper                   # .git-credentails에 저장
 $ git config --global credential.helper osxkeychain       # 키체인에 저장 
 $ git config --global --unset credential.helper           # 원복 
-```
-
-- branch local -> remote
-```
-$ git checkout -b develop
-$ git push -u origin develop
-...
-$ git push
-
-$ git checkout master
-$ git merge develop
-$ git push
-...
-```
-- remote branch 삭제
-```
-(master) git branch --delete develop (git branch -D develop)
-git push origin :develop
-```
-
-- 확인하면서 add 하기
-```
-git add . -p
 ```
 
 
