@@ -110,6 +110,17 @@ base를 옮겨 선형 로그로 만든다 (원격 저장소에 push하기 전에
 $ git rebase {이동하려는 branch name}
 ```
 
+- git stash
+```
+작업하던 내용을 임시 저장하고 다른 브랜치로 이동한다
+$ git stash
+$ git stash list
+$ git stash apply {stash이름}
+  
+stash 삭제하기
+git stash drop {stash이름}
+```
+
 - git add tip
 ```
 git add . -p # 하나씩 확인하며 add
