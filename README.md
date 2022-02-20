@@ -141,7 +141,8 @@ $ git config --global --unset credential.helper           # 원복
 $ vi main.txt # 1
 $ git add .
 $ git commit -m 'work 1'
-$ git tag 0.1 
+$ git tag 0.1
+$ git remote add origin https:....
 $ git push -u origin main
 $ git push origin 0.1
 ```
@@ -152,7 +153,6 @@ $ git checkout -b develop
 $ git push -u origin develop
 $ vi main.txt # 1,2
 $ git commit -am 'work 2'
-$ git push
 $ vi main.txt # 1,2,3
 $ git commit -am 'work 3'
 $ git push
@@ -167,7 +167,6 @@ $ git push -u origin release/0.2
 $ vi release.txt # 1
 $ git add .
 $ git commit -m 'release/0.2 1'
-$ git push
 $ vi release.txt # 1,2
 $ git commit -am 'release/0.2 2'
 $ git push
@@ -182,9 +181,10 @@ $ git push
 $ git checkout main
 $ git merge --no-ff release/0.2
 $ git tag 0.2
-$ git push
+$ git push origin main
 $ git push origin 0.2
 $ git branch -D release/0.2 
+$ git push origin :release/0.2
 ```
 
 
@@ -202,7 +202,6 @@ $ git checkout feature/short
 $ vi short.txt # 1
 $ git add .
 $ git commit -m 'short 1'
-$ git push
 $ vi short.txt # 1,2
 $ git commit -am 'short 2'
 $ git push
@@ -211,7 +210,6 @@ $ git checkout feature/long
 $ vi long.txt # 1
 $ git add .
 $ git commit -m 'long 1'
-$ git push
 $ vi long.txt # 1,2
 $ git commit -am 'long 2'
 $ git push
@@ -222,6 +220,7 @@ $ git checkout develop
 $ git merge --no-ff feature/short
 $ git push
 $ git branch -D feature/short 
+$ git push origin :feature.short
 ```
 
 - release/0.3
@@ -244,6 +243,7 @@ $ git tag 0.3
 $ git push
 $ git push origin 0.3
 $ git branch -D release/0.3 
+$ git push origin :release/0.3
 ```
 
 - hotfixes
@@ -260,6 +260,7 @@ $ git tag 0.3.1
 $ git push
 $ git push origin 0.3.1
 $ git branch -D hotfixes/0.3.1
+$ git push origin :hotfixes/0.3.1
 ```
 
 ### 참고
