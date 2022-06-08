@@ -1,14 +1,21 @@
 ## git basic
-
+- git 기본
+```
+main(master): 기본 브랜치
+origin: 기본 리모트 저장소
+HEAD: 현재 브랜치
+HEAD^: 현재의 부모
+HEAD~2: 현재의 부모의 부모
+```
 
 - local에 working directory 생성하기
 ```
 $ git init
 $ git branch -M main
 ...
-$ git status
-$ git add .
 $ git diff
+$ git add .
+$ git status
 $ git commit -m 'first commit'
 ```
 
@@ -35,15 +42,6 @@ $ git log
 $ git log -p
 $ git log --stat
 $ git log --all -graph --oneline
-```
-
-- git 기본
-```
-main(master): 기본 브랜치
-origin: 기본 리모트 저장소
-HEAD: 현재 브랜치
-HEAD^: 현재의 부모
-HEAD~2: 현재의 부모의 부모
 ```
 
 - branch 생성하고 합치기
