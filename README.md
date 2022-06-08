@@ -8,7 +8,25 @@ $ git branch -M main
 ...
 $ git status
 $ git add .
+$ git diff
 $ git commit -m 'first commit'
+```
+
+- restore
+```
+$ git status
+
+로컬 수정사항 취소
+$ git restore <file>
+
+add 취소
+$ git resotre --staged <file>
+
+commit 취소
+$ git reset --hard HEAD^
+ --mixed: 취소 내용을 working directory에
+ --soft: 취소 내용을 staging area에
+ --hard: 취소 내용 버림
 ```
 
 - log 확인하기
