@@ -13,6 +13,7 @@ HEAD~2: 현재의 부모의 부모
 $ git init
 $ git branch -M main
 ...
+$ git status
 $ git diff
 $ git add .
 $ git status
