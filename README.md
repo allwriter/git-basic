@@ -15,9 +15,9 @@ $ git branch -M main
 ...
 $ git status
 $ git diff
-$ git add .   -- Staging Area
+$ git add .   #Staging Area
 $ git status
-$ git commit -m 'first commit'  -- Repository
+$ git commit -m 'first commit'  #Repository
 ```
 
 - restore
