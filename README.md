@@ -40,9 +40,7 @@ $ git reset --hard HEAD^
 - log 확인하기
 ```
 $ git log
-$ git log -p
-$ git log --stat
-$ git log --all -graph --oneline
+$ git log --branches --graph
 ```
 
 - branch 생성하고 합치기
