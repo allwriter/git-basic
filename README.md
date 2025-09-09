@@ -40,7 +40,7 @@ $ git reset --hard HEAD^
 - log 확인하기
 ```
 $ git log
-$ git log --branches --graph
+$ git log --branches --graph --oneline
 $ git log -p master..develop
 $ git diff master..develop
 ```
@@ -50,9 +50,11 @@ $ git diff master..develop
 $ git branch
 $ git branch develop
 $ git checkout develop
+> git checkout -b develop
 ...
 $ git checkout main
 $ git merge develop
+$ git branch -d develop
 ```
 
 - remote에 백업
@@ -77,7 +79,7 @@ $ git checkout -t origin/develop
 
 - 되돌리기
 ```
-$ git log --all --graph --oneline
+$ git log --branches --graph --oneline
 $ git reset <version> # 해당 버전으로 되돌리기 윗 버전들은 삭제 log도 함께 사라짐
  --mixed: 취소 내용을 working directory에
  --soft: 취소 내용을 staging area에
@@ -136,6 +138,8 @@ $ git stash apply {stash이름}
   
 stash 삭제하기
 git stash drop {stash이름}
+
+>git stash pop
 ```
 
 - git add tip
