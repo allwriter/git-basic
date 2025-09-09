@@ -15,9 +15,9 @@ $ git branch -M main
 ...
 $ git status
 $ git diff
-$ git add .
+$ git add .   -- Staging Area
 $ git status
-$ git commit -m 'first commit'
+$ git commit -m 'first commit'  -- Repository
 ```
 
 - restore
@@ -41,6 +41,8 @@ $ git reset --hard HEAD^
 ```
 $ git log
 $ git log --branches --graph
+$ git log -p master..develop
+$ git diff master..develop
 ```
 
 - branch 생성하고 합치기
